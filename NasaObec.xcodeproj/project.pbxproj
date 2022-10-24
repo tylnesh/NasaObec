@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		1F6A356728F474E300293FFD /* NasaObecApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A356628F474E300293FFD /* NasaObecApp.swift */; };
-		1F6A356928F474E300293FFD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A356828F474E300293FFD /* ContentView.swift */; };
+		1F6A356928F474E300293FFD /* ArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A356828F474E300293FFD /* ArticleView.swift */; };
 		1F6A356B28F474E400293FFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F6A356A28F474E400293FFD /* Assets.xcassets */; };
 		1F6A356E28F474E500293FFD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F6A356D28F474E500293FFD /* Preview Assets.xcassets */; };
 		1F6A357828F474E500293FFD /* NasaObecTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A357728F474E500293FFD /* NasaObecTests.swift */; };
 		1F6A358228F474E500293FFD /* NasaObecUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A358128F474E500293FFD /* NasaObecUITests.swift */; };
 		1F6A358428F474E500293FFD /* NasaObecUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A358328F474E500293FFD /* NasaObecUITestsLaunchTests.swift */; };
+		1F6A35F629067C6900293FFD /* TrencinWpArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A35F529067C6900293FFD /* TrencinWpArticle.swift */; };
+		1F6A35FB2906E27C00293FFD /* ExampleArticle.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F6A35FA2906E27C00293FFD /* ExampleArticle.json */; };
+		1F6A35FE2906F0B800293FFD /* RichText in Frameworks */ = {isa = PBXBuildFile; productRef = 1F6A35FD2906F0B800293FFD /* RichText */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +39,7 @@
 /* Begin PBXFileReference section */
 		1F6A356328F474E300293FFD /* NasaObec.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NasaObec.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F6A356628F474E300293FFD /* NasaObecApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaObecApp.swift; sourceTree = "<group>"; };
-		1F6A356828F474E300293FFD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1F6A356828F474E300293FFD /* ArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleView.swift; sourceTree = "<group>"; };
 		1F6A356A28F474E400293FFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F6A356D28F474E500293FFD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1F6A357328F474E500293FFD /* NasaObecTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NasaObecTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +47,8 @@
 		1F6A357D28F474E500293FFD /* NasaObecUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NasaObecUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F6A358128F474E500293FFD /* NasaObecUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaObecUITests.swift; sourceTree = "<group>"; };
 		1F6A358328F474E500293FFD /* NasaObecUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaObecUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1F6A35F529067C6900293FFD /* TrencinWpArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrencinWpArticle.swift; sourceTree = "<group>"; };
+		1F6A35FA2906E27C00293FFD /* ExampleArticle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ExampleArticle.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F6A35FE2906F0B800293FFD /* RichText in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,8 +100,10 @@
 		1F6A356528F474E300293FFD /* NasaObec */ = {
 			isa = PBXGroup;
 			children = (
+				1F6A35F92906E1E800293FFD /* Resources */,
+				1F6A35F3290679F300293FFD /* Models */,
+				1F6A35F4290679F800293FFD /* Views */,
 				1F6A356628F474E300293FFD /* NasaObecApp.swift */,
-				1F6A356828F474E300293FFD /* ContentView.swift */,
 				1F6A356A28F474E400293FFD /* Assets.xcassets */,
 				1F6A356C28F474E500293FFD /* Preview Content */,
 			);
@@ -127,6 +135,30 @@
 			path = NasaObecUITests;
 			sourceTree = "<group>";
 		};
+		1F6A35F3290679F300293FFD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1F6A35F529067C6900293FFD /* TrencinWpArticle.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1F6A35F4290679F800293FFD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1F6A356828F474E300293FFD /* ArticleView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1F6A35F92906E1E800293FFD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1F6A35FA2906E27C00293FFD /* ExampleArticle.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +175,9 @@
 			dependencies = (
 			);
 			name = NasaObec;
+			packageProductDependencies = (
+				1F6A35FD2906F0B800293FFD /* RichText */,
+			);
 			productName = NasaObec;
 			productReference = 1F6A356328F474E300293FFD /* NasaObec.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +250,9 @@
 				Base,
 			);
 			mainGroup = 1F6A355A28F474E300293FFD;
+			packageReferences = (
+				1F6A35FC2906F0B800293FFD /* XCRemoteSwiftPackageReference "RichText" */,
+			);
 			productRefGroup = 1F6A356428F474E300293FFD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -233,6 +271,7 @@
 			files = (
 				1F6A356E28F474E500293FFD /* Preview Assets.xcassets in Resources */,
 				1F6A356B28F474E400293FFD /* Assets.xcassets in Resources */,
+				1F6A35FB2906E27C00293FFD /* ExampleArticle.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,8 +296,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F6A356928F474E300293FFD /* ContentView.swift in Sources */,
+				1F6A356928F474E300293FFD /* ArticleView.swift in Sources */,
 				1F6A356728F474E300293FFD /* NasaObecApp.swift in Sources */,
+				1F6A35F629067C6900293FFD /* TrencinWpArticle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -583,6 +623,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1F6A35FC2906F0B800293FFD /* XCRemoteSwiftPackageReference "RichText" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/NuPlay/RichText.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1F6A35FD2906F0B800293FFD /* RichText */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1F6A35FC2906F0B800293FFD /* XCRemoteSwiftPackageReference "RichText" */;
+			productName = RichText;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1F6A355B28F474E300293FFD /* Project object */;
 }
