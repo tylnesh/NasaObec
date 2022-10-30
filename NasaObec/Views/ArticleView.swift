@@ -9,63 +9,27 @@ import SwiftUI
 import RichText
 
 struct ArticleView: View {
-    private let trencinWpArticleUrl = "https://trencin.sk/wp-json/wp/v2/posts/70600"
-
-    var article: TrencinWpArticle? {
-        do {
-            guard let exampleArticleFilePath = Bundle.main.path(forResource: "ExampleArticle", ofType: "json"), let exampleArticleData = FileManager.default.contents(atPath: exampleArticleFilePath) else {
-                print ("Cannot open json file")
-                return nil
-            }
-            let decoder = JSONDecoder()
-            let exampleArticle = try decoder.decode(TrencinWpArticle.self, from: exampleArticleData)
-            return exampleArticle
-        }   catch {
-                print(error)
-        }
-       return nil
-    }
-    
-    var attributedArticleContent:NSAttributedString {
-        do {
-            let attributedString = try NSAttributedString(data:(article?.content.rendered.data(using: .utf16))!, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil )
-                return attributedString
-            } catch {
-                print(error)
-            }
-        
-       
-        return NSAttributedString("")
-
-    }
-    
+    private let trencinWpArticleUrl = URL(string: "https://trencin.sk/wp-json/wp/v2/posts/70600")
+    let article: TrencinWpArticle
    
     var body: some View {
         ZStack{
-            Color.gray.ignoresSafeArea()
             VStack {
-                Text((article?.title.rendered ?? "No article title")).font(.headline).padding(.bottom)
+                Text((article.title.rendered )).font(.headline).padding(.bottom)
                 Spacer()
                 ScrollView {
-//                    Text((article?.content.rendered ?? "No article content"))
-                    //Text(AttributedString(attributedArticleContent))
-                    RichText(html:article?.content.rendered ?? "No article content")
-                    
-                    
+                    RichText(html:article.content.rendered ).foregroundColor(light: Color.black, dark: Color.white)
                 }
-                
-            
             }.padding(30)
-                .navigationBarTitle(Text(article?.title.rendered ?? "No article title found"), displayMode: .automatic)
-                
-            
+                .navigationBarTitle(Text(article.title.rendered ), displayMode: .automatic)
         }
     }
 
 
 struct MunicipalityView_Previews: PreviewProvider {
+    static var article =  TrencinWpArticle(id: 0, dateGmt: "", modifiedGmt: "", title: TrencinWpArticle.Title(rendered: "Testing Title"),  content: TrencinWpArticle.Content(rendered: "Lorem ipsum dolor blablabla"), mediaLink: TrencinWpArticle.Yoast(ogImage: TrencinWpArticle.OgImage(urlString:  "https://trencin.sk/wp-content/uploads/2022/10/cintorin-scaled.jpg" ,width:100,height:100,type: "")))
     static var previews: some View {
-        ArticleView()
+        ArticleView(article: article)
     }
     }
 }

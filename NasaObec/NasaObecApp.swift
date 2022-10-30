@@ -9,9 +9,22 @@ import SwiftUI
 
 @main
 struct NasaObecApp: App {
+    let articleUrl = "https://trencin.sk/wp-json/wp/v2/posts"
+    @StateObject private var store = TrencinArticleStore()
+    
+    var articles = TrencinWpArticle.sampleArticles
+    
     var body: some Scene {
         WindowGroup {
-            ArticleView()
+            NavigationView {
+                ArticleListView(articles: store.articles)
+            }.task {
+                do {
+                    store.articles = try await TrencinArticleStore.fetchArticles(from: articleUrl)
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
         }
     }
 }
