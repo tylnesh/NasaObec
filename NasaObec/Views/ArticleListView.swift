@@ -9,24 +9,34 @@ import SwiftUI
 
 struct ArticleListView: View {
     
-    var articles: [TrencinWpArticle]
+    @Binding var articles: [TrencinWpArticle]
+    @Environment(\.scenePhase) private var scenePhase
+    let saveAction: ()->Void
+
     var body: some View {
         List {
             ForEach(articles) { article in
                 NavigationLink(destination: ArticleView(article: article)) {
                     TrencinArticleExcerptView(article: article)
-                }.listRowBackground(article.mainColor)
+                }
             }
-        }.navigationTitle("Trenčín - oznamy")
+        }
+        .navigationTitle("Trenčín - oznamy")
+        .toolbar {
+            Button(action: {
+                saveAction()
+            }) {
+                Image(systemName:"arrow.2.squarepath")
+            }
+        }
+        
     }
 }
 
 struct ArticleListView_Previews: PreviewProvider {
   
-    
-    
     static var previews: some View {
         
-        ArticleListView(articles: TrencinWpArticle.sampleArticles!)
+        ArticleListView(articles: .constant(TrencinWpArticle.sampleArticles!), saveAction: {})
     }
 }

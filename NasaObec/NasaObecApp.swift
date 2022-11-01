@@ -9,7 +9,6 @@ import SwiftUI
 
 @main
 struct NasaObecApp: App {
-    let articleUrl = "https://trencin.sk/wp-json/wp/v2/posts"
     @StateObject private var store = TrencinArticleStore()
     
     var articles = TrencinWpArticle.sampleArticles
@@ -17,14 +16,34 @@ struct NasaObecApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                ArticleListView(articles: store.articles)
+                ArticleListView(articles: $store.articles) {
+                    Task {
+                        do {
+                            let upToDate = try await TrencinArticleStore.isUpToDate()
+                            if (!upToDate) {
+                                store.articles = try await TrencinArticleStore.fetchArticles()
+                                try await TrencinArticleStore.save(articles: store.articles)
+                            }
+                        } catch {
+//                            errorWrapper = ErrorWrapper(error: error, guidance: "Try again later.")
+                            print(error)
+                        }
+                    }
+                }
             }.task {
                 do {
-                    store.articles = try await TrencinArticleStore.fetchArticles(from: articleUrl)
+                    store.articles = try await TrencinArticleStore.load()
+                    let upToDate = try await TrencinArticleStore.isUpToDate()
+                    if (!upToDate) {
+                        store.articles = try await TrencinArticleStore.fetchArticles()
+                        try await TrencinArticleStore.save(articles: store.articles)
+                    }
+
                 } catch {
-                    print(error.localizedDescription)
+                    print(error)
                 }
             }
+            
         }
     }
 }

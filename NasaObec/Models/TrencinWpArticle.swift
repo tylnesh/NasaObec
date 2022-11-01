@@ -741,4 +741,47 @@ extension TrencinWpArticle {
     static let sampleArticles = try? JSONDecoder().decode([TrencinWpArticle].self, from: sampleData)
 }
 
+extension TrencinWpArticle {
+    var strippedExcerpt:NSAttributedString {
+        do {
+            let attributedString = try NSAttributedString(data:(self.excerpt.rendered.data(using: .utf16))!, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil )
+            return attributedString
+        } catch {
+            print(error)
+        }
+        return NSAttributedString("")
+    }
+
+    var strippedTitle:NSAttributedString {
+        do {
+            let attributedString = try NSAttributedString(data:(self.title.rendered.data(using: .utf16))!, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil )
+            return attributedString
+        } catch {
+            print(error)
+        }
+        return NSAttributedString("")
+    }
+    
+    var published:Date {
+        let RFC3339DateFormatter = DateFormatter()
+        RFC3339DateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        RFC3339DateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        
+        let date = RFC3339DateFormatter.date(from: dateGmt) ?? Date()
+    
+        return date
+    }
+    
+    var updated:Date {
+        let RFC3339DateFormatter = DateFormatter()
+        RFC3339DateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        RFC3339DateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        
+        let date = RFC3339DateFormatter.date(from: modifiedGmt) ?? Date()
+        return date
+    }
+    
+    
+}
+
 

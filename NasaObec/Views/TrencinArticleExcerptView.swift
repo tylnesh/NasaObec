@@ -11,43 +11,17 @@ struct TrencinArticleExcerptView: View {
     let article: TrencinWpArticle
 
         
-        var strippedExcerpt:NSAttributedString {
-            do {
-                let attributedString = try NSAttributedString(data:(article.excerpt.rendered.data(using: .utf16))!, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil )
-                return attributedString
-            } catch {
-                print(error)
-            }
-            return NSAttributedString("")
-        }
-        
-        
         var body: some View {
             VStack(alignment: .leading) {
-                Text(article.title.rendered).font(.headline)
-                Spacer()
-                HStack{
-                    if (article.evenCount) {
-                        AsyncImage(url: URL(string: article.mediaLink.ogImages.first!.url)) { image in
-                            image.resizable()
-                        } placeholder: {
-                            ProgressView()
-                        }.frame(width:150, height:100)
-                        Text(strippedExcerpt.string).foregroundColor(article.accentColor)
-
-                    } else {
-                        Text(strippedExcerpt.string).foregroundColor(article.accentColor).multilineTextAlignment(.trailing)
-                        AsyncImage(url:  URL(string: article.mediaLink.ogImages.first!.url)) { image in
-                            image.resizable()
-                        } placeholder: {
-                            ProgressView()
-                        }.frame(width:150, height:100)
-
-                    }
-
-                }.font(.caption)
-            }.padding()
-                .foregroundColor(article.accentColor)
+                Text(article.strippedTitle.string).font(.title).multilineTextAlignment(.center)
+                AsyncImage(url: URL(string: article.mediaLink.ogImages.first!.url)) { image in
+                    image.resizable()
+                        .scaledToFit()
+                } placeholder: {
+                    ProgressView()
+                }.frame(width:300, height:200)
+                Text(article.strippedExcerpt.string)
+            }
         }
     }
     

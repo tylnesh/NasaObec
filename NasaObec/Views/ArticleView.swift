@@ -11,17 +11,48 @@ import RichText
 struct ArticleView: View {
     private let trencinWpArticleUrl = URL(string: "https://trencin.sk/wp-json/wp/v2/posts/70600")
     let article: TrencinWpArticle
+    
+    let myFormat = Date.FormatStyle()
+        .day()
+        .month()
+        .year()
+        .hour()
+        .minute()
+        .second()
+        .locale(Locale(identifier: "sk_SK"))
    
     var body: some View {
-        ZStack{
-            VStack {
-                Text((article.title.rendered )).font(.headline).padding(.bottom)
-                Spacer()
+        NavigationView {
                 ScrollView {
+                    HStack {
+                        VStack{
+                            Text("Publikované:")
+                            Text("\(article.published.formatted(myFormat))")
+                        }
+                        Spacer()
+                        VStack {
+                            Text("Posledná aktualizácia:")
+                            Text("\(article.updated.formatted(myFormat))")
+                        }
+                    }.font(.caption).padding()
+                    AsyncImage(url:  URL(string: article.mediaLink.ogImages.first!.url)) { image in
+                        image.resizable().scaledToFit()
+                    } placeholder: {
+                        ProgressView()
+                    }.frame(width:300, height:200).multilineTextAlignment(.center)
                     RichText(html:article.content.rendered ).foregroundColor(light: Color.black, dark: Color.white)
                 }
-            }.padding(30)
-                .navigationBarTitle(Text(article.title.rendered ), displayMode: .automatic)
+            
+            
+        }
+        .toolbar {
+            ToolbarItem(placement: .principal, content: {
+                Text(article.strippedTitle.string)
+                    .font(.title2)
+            })
+            
+        }
+        
         }
     }
 
@@ -32,4 +63,4 @@ struct MunicipalityView_Previews: PreviewProvider {
         ArticleView(article: article)
     }
     }
-}
+
