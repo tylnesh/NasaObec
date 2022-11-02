@@ -12,9 +12,9 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
-struct @graph : Codable {
-	let @type : String?
-	let @id : String?
+struct graph : Codable {
+	let type : String?
+	let id : String?
 	let name : String?
 	let url : String?
 	let sameAs : [String]?
@@ -23,8 +23,8 @@ struct @graph : Codable {
 
 	enum CodingKeys: String, CodingKey {
 
-		case @type = "@type"
-		case @id = "@id"
+		case type = "@type"
+		case id = "@id"
 		case name = "name"
 		case url = "url"
 		case sameAs = "sameAs"
@@ -34,8 +34,8 @@ struct @graph : Codable {
 
 	init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		@type = try values.decodeIfPresent(String.self, forKey: .@type)
-		@id = try values.decodeIfPresent(String.self, forKey: .@id)
+		type = try values.decodeIfPresent(String.self, forKey: .type)
+		id = try values.decodeIfPresent(String.self, forKey: .id)
 		name = try values.decodeIfPresent(String.self, forKey: .name)
 		url = try values.decodeIfPresent(String.self, forKey: .url)
 		sameAs = try values.decodeIfPresent([String].self, forKey: .sameAs)

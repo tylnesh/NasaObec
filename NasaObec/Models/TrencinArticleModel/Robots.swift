@@ -15,26 +15,26 @@ import Foundation
 struct Robots : Codable {
 	let index : String?
 	let follow : String?
-	let max-snippet : String?
-	let max-image-preview : String?
-	let max-video-preview : String?
+	let maxSnippet : String?
+	let maxImagePreview : String?
+	let maxVideoPreview : String?
 
 	enum CodingKeys: String, CodingKey {
 
 		case index = "index"
 		case follow = "follow"
-		case max-snippet = "max-snippet"
-		case max-image-preview = "max-image-preview"
-		case max-video-preview = "max-video-preview"
+		case maxSnippet = "max-snippet"
+		case maxImagePreview = "max-image-preview"
+		case maxVideoPreview = "max-video-preview"
 	}
 
 	init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
 		index = try values.decodeIfPresent(String.self, forKey: .index)
 		follow = try values.decodeIfPresent(String.self, forKey: .follow)
-		max-snippet = try values.decodeIfPresent(String.self, forKey: .max-snippet)
-		max-image-preview = try values.decodeIfPresent(String.self, forKey: .max-image-preview)
-		max-video-preview = try values.decodeIfPresent(String.self, forKey: .max-video-preview)
+        maxSnippet = try values.decodeIfPresent(String.self, forKey: .maxSnippet)
+        maxImagePreview = try values.decodeIfPresent(String.self, forKey: .maxImagePreview)
+        maxVideoPreview = try values.decodeIfPresent(String.self, forKey: .maxVideoPreview)
 	}
 
 }

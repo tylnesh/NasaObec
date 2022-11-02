@@ -12,19 +12,16 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
-struct Wp:featuredmedia : Codable {
-	let embeddable : Bool?
+struct LinkSelf : Codable {
 	let href : String?
 
 	enum CodingKeys: String, CodingKey {
 
-		case embeddable = "embeddable"
 		case href = "href"
 	}
 
 	init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		embeddable = try values.decodeIfPresent(Bool.self, forKey: .embeddable)
 		href = try values.decodeIfPresent(String.self, forKey: .href)
 	}
 

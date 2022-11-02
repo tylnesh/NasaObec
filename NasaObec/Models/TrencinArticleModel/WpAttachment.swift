@@ -12,26 +12,17 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
-struct Og_image : Codable {
-	let width : String?
-	let height : String?
-	let url : String?
-	let type : String?
+struct WpAttachment : Codable {
+	let href : String?
 
 	enum CodingKeys: String, CodingKey {
 
-		case width = "width"
-		case height = "height"
-		case url = "url"
-		case type = "type"
+		case href = "href"
 	}
 
 	init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		width = try values.decodeIfPresent(String.self, forKey: .width)
-		height = try values.decodeIfPresent(String.self, forKey: .height)
-		url = try values.decodeIfPresent(String.self, forKey: .url)
-		type = try values.decodeIfPresent(String.self, forKey: .type)
+		href = try values.decodeIfPresent(String.self, forKey: .href)
 	}
 
 }

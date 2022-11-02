@@ -13,45 +13,45 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 
 import Foundation
 struct _links : Codable {
-	let self : [Self]?
+	let linkSelf : [LinkSelf]?
 	let collection : [Collection]?
 	let about : [About]?
 	let author : [Author]?
 	let replies : [Replies]?
-	let version-history : [Version-history]?
-	let predecessor-version : [Predecessor-version]?
-	let wp:featuredmedia : [Wp:featuredmedia]?
-	let wp:attachment : [Wp:attachment]?
-	let wp:term : [Wp:term]?
+	let versionHistory : [VersionHistory]?
+	let predecessorVersion : [PredecessorVersion]?
+	let wpFeaturedmedia : [WpFeaturedmedia]?
+	let wpAttachment : [WpAttachment]?
+	let wpTerm : [WpTerm]?
 	let curies : [Curies]?
 
 	enum CodingKeys: String, CodingKey {
 
-		case self = "self"
+		case linkSelf = "self"
 		case collection = "collection"
 		case about = "about"
 		case author = "author"
 		case replies = "replies"
-		case version-history = "version-history"
-		case predecessor-version = "predecessor-version"
-		case wp:featuredmedia = "wp:featuredmedia"
-		case wp:attachment = "wp:attachment"
-		case wp:term = "wp:term"
+		case versionHistory = "version-history"
+		case predecessorVersion = "predecessor-version"
+		case wpFeaturedmedia = "wp:featuredmedia"
+		case wpAttachment = "wp:attachment"
+		case wpTerm = "wp:term"
 		case curies = "curies"
 	}
 
 	init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		self = try values.decodeIfPresent([Self].self, forKey: .self)
+		linkSelf = try values.decodeIfPresent([LinkSelf].self, forKey: .linkSelf)
 		collection = try values.decodeIfPresent([Collection].self, forKey: .collection)
 		about = try values.decodeIfPresent([About].self, forKey: .about)
 		author = try values.decodeIfPresent([Author].self, forKey: .author)
 		replies = try values.decodeIfPresent([Replies].self, forKey: .replies)
-		version-history = try values.decodeIfPresent([Version-history].self, forKey: .version-history)
-		predecessor-version = try values.decodeIfPresent([Predecessor-version].self, forKey: .predecessor-version)
-		wp:featuredmedia = try values.decodeIfPresent([Wp:featuredmedia].self, forKey: .wp:featuredmedia)
-		wp:attachment = try values.decodeIfPresent([Wp:attachment].self, forKey: .wp:attachment)
-		wp:term = try values.decodeIfPresent([Wp:term].self, forKey: .wp:term)
+		versionHistory = try values.decodeIfPresent([VersionHistory].self, forKey: .versionHistory)
+		predecessorVersion = try values.decodeIfPresent([PredecessorVersion].self, forKey: .predecessorVersion)
+		wpFeaturedmedia = try values.decodeIfPresent([WpFeaturedmedia].self, forKey: .wpFeaturedmedia)
+		wpAttachment = try values.decodeIfPresent([WpAttachment].self, forKey: .wpAttachment)
+		wpTerm = try values.decodeIfPresent([WpTerm].self, forKey: .wpTerm)
 		curies = try values.decodeIfPresent([Curies].self, forKey: .curies)
 	}
 

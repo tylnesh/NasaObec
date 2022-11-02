@@ -12,22 +12,19 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
-struct Wp:term : Codable {
-	let taxonomy : String?
-	let embeddable : Bool?
+struct VersionHistory : Codable {
+	let count : Int?
 	let href : String?
 
 	enum CodingKeys: String, CodingKey {
 
-		case taxonomy = "taxonomy"
-		case embeddable = "embeddable"
+		case count = "count"
 		case href = "href"
 	}
 
 	init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		taxonomy = try values.decodeIfPresent(String.self, forKey: .taxonomy)
-		embeddable = try values.decodeIfPresent(Bool.self, forKey: .embeddable)
+		count = try values.decodeIfPresent(Int.self, forKey: .count)
 		href = try values.decodeIfPresent(String.self, forKey: .href)
 	}
 

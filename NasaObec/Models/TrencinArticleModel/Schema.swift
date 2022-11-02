@@ -13,19 +13,19 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 
 import Foundation
 struct Schema : Codable {
-	let @context : String?
-	let @graph : [@graph]?
+	let context : String?
+	let graph : [graph]?
 
 	enum CodingKeys: String, CodingKey {
 
-		case @context = "@context"
-		case @graph = "@graph"
+		case context = "@context"
+		case graph = "@graph"
 	}
 
 	init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		@context = try values.decodeIfPresent(String.self, forKey: .@context)
-		@graph = try values.decodeIfPresent([@graph].self, forKey: .@graph)
+		context = try values.decodeIfPresent(String.self, forKey: .context)
+		graph = try values.decodeIfPresent([graph].self, forKey: .graph)
 	}
 
 }

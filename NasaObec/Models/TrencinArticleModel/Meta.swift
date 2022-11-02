@@ -13,16 +13,16 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 
 import Foundation
 struct Meta : Codable {
-	let inline_featured_image : Bool?
+	let inlineFeaturedImage : Bool?
 
 	enum CodingKeys: String, CodingKey {
 
-		case inline_featured_image = "inline_featured_image"
+		case inlineFeaturedImage = "inline_featured_image"
 	}
 
 	init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		inline_featured_image = try values.decodeIfPresent(Bool.self, forKey: .inline_featured_image)
+		inlineFeaturedImage = try values.decodeIfPresent(Bool.self, forKey: .inlineFeaturedImage)
 	}
 
 }

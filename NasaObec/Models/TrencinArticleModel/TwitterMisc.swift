@@ -12,20 +12,20 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
-struct Twitter_misc : Codable {
-	let written by : String?
-	let est. reading time : String?
+struct TwitterMisc : Codable {
+	let writtenBy : String?
+	let estReadingTime : String?
 
 	enum CodingKeys: String, CodingKey {
 
-		case written by = "Written by"
-		case est. reading time = "Est. reading time"
+		case writtenBy = "Written by"
+		case estReadingTime = "Est. reading time"
 	}
 
 	init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		written by = try values.decodeIfPresent(String.self, forKey: .written by)
-		est. reading time = try values.decodeIfPresent(String.self, forKey: .est. reading time)
+        writtenBy = try values.decodeIfPresent(String.self, forKey: .writtenBy)
+        estReadingTime = try values.decodeIfPresent(String.self, forKey: .estReadingTime)
 	}
 
 }

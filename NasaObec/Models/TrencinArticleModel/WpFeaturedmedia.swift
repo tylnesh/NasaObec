@@ -12,19 +12,19 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
-struct Version-history : Codable {
-	let count : Int?
+struct WpFeaturedmedia : Codable {
+	let embeddable : Bool?
 	let href : String?
 
 	enum CodingKeys: String, CodingKey {
 
-		case count = "count"
+		case embeddable = "embeddable"
 		case href = "href"
 	}
 
 	init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		count = try values.decodeIfPresent(Int.self, forKey: .count)
+		embeddable = try values.decodeIfPresent(Bool.self, forKey: .embeddable)
 		href = try values.decodeIfPresent(String.self, forKey: .href)
 	}
 

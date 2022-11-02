@@ -12,7 +12,7 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
-struct Predecessor-version : Codable {
+struct PredecessorVersion : Codable {
 	let id : Int?
 	let href : String?
 

@@ -13,8 +13,8 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 
 import Foundation
 struct Logo : Codable {
-	let @type : String?
-	let @id : String?
+	let type : String?
+	let id : String?
 	let inLanguage : String?
 	let url : String?
 	let contentUrl : String?
@@ -24,8 +24,8 @@ struct Logo : Codable {
 
 	enum CodingKeys: String, CodingKey {
 
-		case @type = "@type"
-		case @id = "@id"
+		case type = "@type"
+		case id = "@id"
 		case inLanguage = "inLanguage"
 		case url = "url"
 		case contentUrl = "contentUrl"
@@ -36,8 +36,8 @@ struct Logo : Codable {
 
 	init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		@type = try values.decodeIfPresent(String.self, forKey: .@type)
-		@id = try values.decodeIfPresent(String.self, forKey: .@id)
+		type = try values.decodeIfPresent(String.self, forKey: .type)
+		id = try values.decodeIfPresent(String.self, forKey: .id)
 		inLanguage = try values.decodeIfPresent(String.self, forKey: .inLanguage)
 		url = try values.decodeIfPresent(String.self, forKey: .url)
 		contentUrl = try values.decodeIfPresent(String.self, forKey: .contentUrl)

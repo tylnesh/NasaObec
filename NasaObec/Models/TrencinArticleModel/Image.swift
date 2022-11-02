@@ -13,16 +13,16 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 
 import Foundation
 struct Image : Codable {
-	let @id : String?
+	let id : String?
 
 	enum CodingKeys: String, CodingKey {
 
-		case @id = "@id"
+		case id = "@id"
 	}
 
 	init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		@id = try values.decodeIfPresent(String.self, forKey: .@id)
+		id = try values.decodeIfPresent(String.self, forKey: .id)
 	}
 
 }
