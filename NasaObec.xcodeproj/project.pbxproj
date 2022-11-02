@@ -17,7 +17,6 @@
 		1F6A35F629067C6900293FFD /* TrencinWpArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A35F529067C6900293FFD /* TrencinWpArticle.swift */; };
 		1F6A35FB2906E27C00293FFD /* ExampleArticle.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F6A35FA2906E27C00293FFD /* ExampleArticle.json */; };
 		1F6A35FE2906F0B800293FFD /* RichText in Frameworks */ = {isa = PBXBuildFile; productRef = 1F6A35FD2906F0B800293FFD /* RichText */; };
-		1F6A36002909861400293FFD /* TrencinArticleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A35FF2909861400293FFD /* TrencinArticleListView.swift */; };
 		1F6A36022909B0D400293FFD /* TrencinArticleExcerptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A36012909B0D400293FFD /* TrencinArticleExcerptView.swift */; };
 		1F6A3604290C0D0000293FFD /* ArticleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A3603290C0D0000293FFD /* ArticleListView.swift */; };
 		1F6A3606290DCBF500293FFD /* TrencinArticleStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A3605290DCBF500293FFD /* TrencinArticleStore.swift */; };
@@ -37,11 +36,11 @@
 		1F6A36312912D06000293FFD /* Robots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A36172912D05F00293FFD /* Robots.swift */; };
 		1F6A36322912D06000293FFD /* PredecessorVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A36182912D05F00293FFD /* PredecessorVersion.swift */; };
 		1F6A36332912D06000293FFD /* WpTerm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A36192912D05F00293FFD /* WpTerm.swift */; };
-		1F6A36342912D06000293FFD /* _links.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A361A2912D05F00293FFD /* _links.swift */; };
+		1F6A36342912D06000293FFD /* Links.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A361A2912D05F00293FFD /* Links.swift */; };
 		1F6A36352912D06000293FFD /* WpAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A361B2912D06000293FFD /* WpAttachment.swift */; };
 		1F6A36362912D06000293FFD /* Guid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A361C2912D06000293FFD /* Guid.swift */; };
 		1F6A36372912D06000293FFD /* LinkSelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A361D2912D06000293FFD /* LinkSelf.swift */; };
-		1F6A36382912D06000293FFD /* graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A361E2912D06000293FFD /* graph.swift */; };
+		1F6A36382912D06000293FFD /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A361E2912D06000293FFD /* Graph.swift */; };
 		1F6A36392912D06000293FFD /* Excerpt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A361F2912D06000293FFD /* Excerpt.swift */; };
 		1F6A363A2912D06000293FFD /* TrencinArticleBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A36202912D06000293FFD /* TrencinArticleBase.swift */; };
 		1F6A363B2912D06000293FFD /* YoastHeadJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A36212912D06000293FFD /* YoastHeadJson.swift */; };
@@ -79,7 +78,6 @@
 		1F6A358328F474E500293FFD /* NasaObecUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaObecUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1F6A35F529067C6900293FFD /* TrencinWpArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrencinWpArticle.swift; sourceTree = "<group>"; };
 		1F6A35FA2906E27C00293FFD /* ExampleArticle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ExampleArticle.json; sourceTree = "<group>"; };
-		1F6A35FF2909861400293FFD /* TrencinArticleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrencinArticleListView.swift; sourceTree = "<group>"; };
 		1F6A36012909B0D400293FFD /* TrencinArticleExcerptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrencinArticleExcerptView.swift; sourceTree = "<group>"; };
 		1F6A3603290C0D0000293FFD /* ArticleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListView.swift; sourceTree = "<group>"; };
 		1F6A3605290DCBF500293FFD /* TrencinArticleStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrencinArticleStore.swift; sourceTree = "<group>"; };
@@ -99,11 +97,11 @@
 		1F6A36172912D05F00293FFD /* Robots.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Robots.swift; sourceTree = "<group>"; };
 		1F6A36182912D05F00293FFD /* PredecessorVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PredecessorVersion.swift; sourceTree = "<group>"; };
 		1F6A36192912D05F00293FFD /* WpTerm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WpTerm.swift; sourceTree = "<group>"; };
-		1F6A361A2912D05F00293FFD /* _links.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _links.swift; sourceTree = "<group>"; };
+		1F6A361A2912D05F00293FFD /* Links.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Links.swift; sourceTree = "<group>"; };
 		1F6A361B2912D06000293FFD /* WpAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WpAttachment.swift; sourceTree = "<group>"; };
 		1F6A361C2912D06000293FFD /* Guid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Guid.swift; sourceTree = "<group>"; };
 		1F6A361D2912D06000293FFD /* LinkSelf.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkSelf.swift; sourceTree = "<group>"; };
-		1F6A361E2912D06000293FFD /* graph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = graph.swift; sourceTree = "<group>"; };
+		1F6A361E2912D06000293FFD /* Graph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		1F6A361F2912D06000293FFD /* Excerpt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Excerpt.swift; sourceTree = "<group>"; };
 		1F6A36202912D06000293FFD /* TrencinArticleBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrencinArticleBase.swift; sourceTree = "<group>"; };
 		1F6A36212912D06000293FFD /* YoastHeadJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoastHeadJson.swift; sourceTree = "<group>"; };
@@ -210,7 +208,6 @@
 			isa = PBXGroup;
 			children = (
 				1F6A356828F474E300293FFD /* ArticleView.swift */,
-				1F6A35FF2909861400293FFD /* TrencinArticleListView.swift */,
 				1F6A36012909B0D400293FFD /* TrencinArticleExcerptView.swift */,
 				1F6A3603290C0D0000293FFD /* ArticleListView.swift */,
 			);
@@ -228,8 +225,8 @@
 		1F6A36092912D03E00293FFD /* TrencinArticleModel */ = {
 			isa = PBXGroup;
 			children = (
-				1F6A361A2912D05F00293FFD /* _links.swift */,
-				1F6A361E2912D06000293FFD /* graph.swift */,
+				1F6A361A2912D05F00293FFD /* Links.swift */,
+				1F6A361E2912D06000293FFD /* Graph.swift */,
 				1F6A36162912D05F00293FFD /* About.swift */,
 				1F6A36202912D06000293FFD /* TrencinArticleBase.swift */,
 				1F6A360B2912D05F00293FFD /* Author.swift */,
@@ -401,7 +398,7 @@
 				1F6A36262912D06000293FFD /* VersionHistory.swift in Sources */,
 				1F6A3606290DCBF500293FFD /* TrencinArticleStore.swift in Sources */,
 				1F6A36242912D06000293FFD /* Curies.swift in Sources */,
-				1F6A36382912D06000293FFD /* graph.swift in Sources */,
+				1F6A36382912D06000293FFD /* Graph.swift in Sources */,
 				1F6A363B2912D06000293FFD /* YoastHeadJson.swift in Sources */,
 				1F6A362F2912D06000293FFD /* Title.swift in Sources */,
 				1F6A36302912D06000293FFD /* About.swift in Sources */,
@@ -418,8 +415,7 @@
 				1F6A36312912D06000293FFD /* Robots.swift in Sources */,
 				1F6A36392912D06000293FFD /* Excerpt.swift in Sources */,
 				1F6A362B2912D06000293FFD /* Meta.swift in Sources */,
-				1F6A36342912D06000293FFD /* _links.swift in Sources */,
-				1F6A36002909861400293FFD /* TrencinArticleListView.swift in Sources */,
+				1F6A36342912D06000293FFD /* Links.swift in Sources */,
 				1F6A36282912D06000293FFD /* Replies.swift in Sources */,
 				1F6A36322912D06000293FFD /* PredecessorVersion.swift in Sources */,
 				1F6A36362912D06000293FFD /* Guid.swift in Sources */,

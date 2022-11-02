@@ -12,7 +12,7 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
-struct TrencinArticleBase : Codable {
+struct TrencinArticleBase : Codable, Identifiable {
 	let id : Int?
 	let date : String?
 	let dateGmt : String?
@@ -38,7 +38,7 @@ struct TrencinArticleBase : Codable {
 	let tags : [String]?
 	let yoastHead : String?
 	let yoastHeadJson : YoastHeadJson?
-	let _links : _links?
+	let links : Links?
 
 	enum CodingKeys: String, CodingKey {
 
@@ -67,7 +67,7 @@ struct TrencinArticleBase : Codable {
 		case tags = "tags"
 		case yoastHead = "yoast_head"
 		case yoastHeadJson = "yoast_head_json"
-		case _links = "_links"
+		case links = "_links"
 	}
 
 	init(from decoder: Decoder) throws {
@@ -97,7 +97,64 @@ struct TrencinArticleBase : Codable {
 		tags = try values.decodeIfPresent([String].self, forKey: .tags)
 		yoastHead = try values.decodeIfPresent(String.self, forKey: .yoastHead)
 		yoastHeadJson = try values.decodeIfPresent(YoastHeadJson.self, forKey: .yoastHeadJson)
-		_links = try values.decodeIfPresent(_links.self, forKey: ._links)
+		links = try values.decodeIfPresent(Links.self, forKey: .links)
 	}
+    
+    
+//    init(id:Int = 0, dateGmt:String = "", modifiedGmt:String = "", link:String = "", title:Title = Title(rendered:""), excerpt:Excerpt = Excerpt(rendered: ""), content:Content = Content(rendered: ""), mediaLink:Yoast = Yoast(ogImage: OgImage(urlString:"",width:100,height:100,type: ""))) {
+//        self.id = id
+//        self.dateGmt = dateGmt
+//        self.modifiedGmt = modifiedGmt
+//        self.link = link
+//        self.title = title
+//        self.excerpt = excerpt
+//        self.content = content
+//        self.mediaLink = mediaLink
+//    }
+    
 
 }
+
+extension TrencinArticleBase {
+    var strippedExcerpt:NSAttributedString {
+        do {
+            let attributedString = try NSAttributedString(data:(self.excerpt?.rendered!.data(using: .utf16))!, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil )
+            return attributedString
+        } catch {
+            print(error)
+        }
+        return NSAttributedString("")
+    }
+
+    var strippedTitle:NSAttributedString {
+        do {
+            let attributedString = try NSAttributedString(data:(self.title?.rendered!.data(using: .utf16))!, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil )
+            return attributedString
+        } catch {
+            print(error)
+        }
+        return NSAttributedString("")
+    }
+    
+    var published:Date {
+        let RFC3339DateFormatter = DateFormatter()
+        RFC3339DateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        RFC3339DateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        
+        let date = RFC3339DateFormatter.date(from: dateGmt!) ?? Date()
+    
+        return date
+    }
+    
+    var updated:Date {
+        let RFC3339DateFormatter = DateFormatter()
+        RFC3339DateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        RFC3339DateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        
+        let date = RFC3339DateFormatter.date(from: modifiedGmt!) ?? Date()
+        return date
+    }
+    
+    
+}
+

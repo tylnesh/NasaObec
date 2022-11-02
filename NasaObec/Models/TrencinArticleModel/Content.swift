@@ -27,5 +27,9 @@ struct Content : Codable {
 		rendered = try values.decodeIfPresent(String.self, forKey: .rendered)
 		protected = try values.decodeIfPresent(Bool.self, forKey: .protected)
 	}
+    
+//    init(rendered: String) {
+//        self.rendered = rendered
+//    }
 
 }

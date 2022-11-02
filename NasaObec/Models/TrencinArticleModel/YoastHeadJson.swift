@@ -25,7 +25,7 @@ struct YoastHeadJson : Codable {
 	let articlePublisher : String?
 	let articlePublishedTime : String?
 	let articleModifiedTime : String?
-	let ogImage : [OgImage]?
+	let ogImages : [OgImage]?
 	let twitterCard : String?
 	let twitterCreator : String?
 	let twitterSite : String?
@@ -46,7 +46,7 @@ struct YoastHeadJson : Codable {
 		case articlePublisher = "article_publisher"
 		case articlePublishedTime = "article_published_time"
 		case articleModifiedTime = "article_modified_time"
-		case ogImage = "og_image"
+		case ogImages = "og_image"
 		case twitterCard = "twitter_card"
 		case twitterCreator = "twitter_creator"
 		case twitterSite = "twitter_site"
@@ -68,12 +68,13 @@ struct YoastHeadJson : Codable {
 		articlePublisher = try values.decodeIfPresent(String.self, forKey: .articlePublisher)
 		articlePublishedTime = try values.decodeIfPresent(String.self, forKey: .articlePublishedTime)
 		articleModifiedTime = try values.decodeIfPresent(String.self, forKey: .articleModifiedTime)
-		ogImage = try values.decodeIfPresent([OgImage].self, forKey: .ogImage)
+		ogImages = try values.decodeIfPresent([OgImage].self, forKey: .ogImages)
 		twitterCard = try values.decodeIfPresent(String.self, forKey: .twitterCard)
 		twitterCreator = try values.decodeIfPresent(String.self, forKey: .twitterCreator)
 		twitterSite = try values.decodeIfPresent(String.self, forKey: .twitterSite)
 		twitterMisc = try values.decodeIfPresent(TwitterMisc.self, forKey: .twitterMisc)
 		schema = try values.decodeIfPresent(Schema.self, forKey: .schema)
 	}
-
+    
+  
 }

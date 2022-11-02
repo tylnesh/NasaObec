@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct TrencinArticleExcerptView: View {
-    let article: TrencinWpArticle
+    let article: TrencinArticleBase
 
         
         var body: some View {
             VStack(alignment: .leading) {
                 Text(article.strippedTitle.string).font(.title).multilineTextAlignment(.center)
-                AsyncImage(url: URL(string: article.mediaLink.ogImages.first!.url)) { image in
+                AsyncImage(url: URL(string: (article.yoastHeadJson?.ogImages?.first!.url!)!)) { image in
                     image.resizable()
                         .scaledToFit()
                 } placeholder: {
@@ -27,9 +27,10 @@ struct TrencinArticleExcerptView: View {
     
     struct TrencinArticleExcerptView_Previews: PreviewProvider {
 
-        static var article =  TrencinWpArticle(id: 70600, dateGmt: "", modifiedGmt: "", title: TrencinWpArticle.Title(rendered: "Testing Title"),  excerpt: TrencinWpArticle.Excerpt(rendered: "<p>S blížiacim sa Sviatkom všetkých svätých došlo opäť k úprave otváracej doby cintorínov. Tie sú v Trenčíne verejnosti prístupné v týchto dňoch až do 4.novembra od 7.00 do 20.00 h. V&nbsp;týchto dňoch je pohrebiskám venovaná zvýšená pozornosť aj zo strany prevádzkovateľa, ktorým je Pohrebníctvo Dvonč. Pri cintorínoch sú pristavené veľkoobjemové kontajnery na odpad z&nbsp;hrobových miest. Kancelária správy pohrebiska [&#8230;]</p>\n<p><a class=\"btn btn-secondary understrap-read-more-link\" href=\"https://trencin.sk/aktuality/cintoriny-su-az-do-4-novembra-otvorene-dlhsie/\">Čítať viac&#8230;</a></p>"), content: TrencinWpArticle.Content(rendered: "Lorem ipsum dolor blablabla") , mediaLink: TrencinWpArticle.Yoast(ogImage: TrencinWpArticle.OgImage(urlString:  "https://trencin.sk/wp-content/uploads/2022/10/cintorin-scaled.jpg" ,width:100,height:100,type: "")))
+//        static var article =  TrencinWpArticle(id: 70600, dateGmt: "", modifiedGmt: "", title: TrencinWpArticle.Title(rendered: "Testing Title"),  excerpt: TrencinWpArticle.Excerpt(rendered: "<p>S blížiacim sa Sviatkom všetkých svätých došlo opäť k úprave otváracej doby cintorínov. Tie sú v Trenčíne verejnosti prístupné v týchto dňoch až do 4.novembra od 7.00 do 20.00 h. V&nbsp;týchto dňoch je pohrebiskám venovaná zvýšená pozornosť aj zo strany prevádzkovateľa, ktorým je Pohrebníctvo Dvonč. Pri cintorínoch sú pristavené veľkoobjemové kontajnery na odpad z&nbsp;hrobových miest. Kancelária správy pohrebiska [&#8230;]</p>\n<p><a class=\"btn btn-secondary understrap-read-more-link\" href=\"https://trencin.sk/aktuality/cintoriny-su-az-do-4-novembra-otvorene-dlhsie/\">Čítať viac&#8230;</a></p>"), content: TrencinWpArticle.Content(rendered: "Lorem ipsum dolor blablabla") , mediaLink: TrencinWpArticle.Yoast(ogImage: TrencinWpArticle.OgImage(urlString:  "https://trencin.sk/wp-content/uploads/2022/10/cintorin-scaled.jpg" ,width:100,height:100,type: "")))
         static var previews: some View {
-            TrencinArticleExcerptView(article: article).background(article.mainColor)
+            Text("blabla")
+//            TrencinArticleExcerptView(article: article).background(article.mainColor)
         }
     }
     

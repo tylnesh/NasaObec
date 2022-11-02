@@ -10,9 +10,7 @@ import SwiftUI
 @main
 struct NasaObecApp: App {
     @StateObject private var store = TrencinArticleStore()
-    
-    var articles = TrencinWpArticle.sampleArticles
-    
+        
     var body: some Scene {
         WindowGroup {
             NavigationView {

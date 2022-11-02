@@ -24,5 +24,9 @@ struct Title : Codable {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
 		rendered = try values.decodeIfPresent(String.self, forKey: .rendered)
 	}
+    
+    init(rendered: String) {
+        self.rendered = rendered
+    }
 
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ArticleListView: View {
     
-    @Binding var articles: [TrencinWpArticle]
+    @Binding var articles: [TrencinArticleBase]
     @Environment(\.scenePhase) private var scenePhase
     let saveAction: ()->Void
 
@@ -23,11 +23,11 @@ struct ArticleListView: View {
         }
         .navigationTitle("Trenčín - oznamy")
         .toolbar {
-            Button(action: {
-                saveAction()
-            }) {
-                Image(systemName:"arrow.2.squarepath")
-            }
+//            Button(action: {
+//                saveAction()
+//            }) {
+//                Image(from:"arrow.2.squarepath" as! Decoder)
+//            }
         }
         
     }
@@ -36,7 +36,7 @@ struct ArticleListView: View {
 struct ArticleListView_Previews: PreviewProvider {
   
     static var previews: some View {
-        
-        ArticleListView(articles: .constant(TrencinWpArticle.sampleArticles!), saveAction: {})
+        Text("blabla")
+//        ArticleListView(articles: .constant(TrencinWpArticle.sampleArticles!), saveAction: {})
     }
 }

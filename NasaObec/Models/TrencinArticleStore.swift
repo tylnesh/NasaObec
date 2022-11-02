@@ -8,7 +8,7 @@
 import Foundation
 
 class TrencinArticleStore: ObservableObject {
-    @Published var articles: [TrencinWpArticle] = []
+    @Published var articles: [TrencinArticleBase] = []
     static let urlString = "https://trencin.sk/wp-json/wp/v2/posts"
 
     private static func fileURL() throws -> URL {
@@ -34,13 +34,13 @@ class TrencinArticleStore: ObservableObject {
     }
     
     static func isUpToDate() async throws -> Bool {
-        var idArray = try await getNewestArticleIds()
-        var articles = try await load()
+        let idArray = try await getNewestArticleIds()
+        let articles = try await load()
         
         var oldArticleIds:[ArticleId] = []
         
         for article in articles {
-            oldArticleIds.append(ArticleId(id: article.id))
+            oldArticleIds.append(ArticleId(id: article.id!))
         }
         var articlesUpToDate = true
         for id in idArray {
@@ -52,9 +52,9 @@ class TrencinArticleStore: ObservableObject {
         return articlesUpToDate
     }
     
-    static func fetchArticles() async throws -> [TrencinWpArticle] {
-        var articles:[TrencinWpArticle] = []
-        var idArray = try await getNewestArticleIds()
+    static func fetchArticles() async throws -> [TrencinArticleBase] {
+        var articles:[TrencinArticleBase] = []
+        let idArray = try await getNewestArticleIds()
         
         for articleId in idArray {
             do {
@@ -63,7 +63,7 @@ class TrencinArticleStore: ObservableObject {
                 postRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
                 postRequest.httpMethod = "GET"
                 let (postData, _) = try await URLSession.shared.data(for: postRequest)
-                let article = try JSONDecoder().decode(TrencinWpArticle.self, from: postData)
+                let article = try JSONDecoder().decode(TrencinArticleBase.self, from: postData)
                 articles.append(article)
             } catch {
                 print(error.localizedDescription)
@@ -76,13 +76,13 @@ class TrencinArticleStore: ObservableObject {
         var id:Int
     }
     
-    static func load() async throws -> [TrencinWpArticle] {
+    static func load() async throws -> [TrencinArticleBase] {
         do {
             let fileURL = try fileURL()
             guard let file = try? FileHandle(forReadingFrom: fileURL) else {
                 return []
             }
-            let articles = try JSONDecoder().decode([TrencinWpArticle].self, from: file.availableData)
+            let articles = try JSONDecoder().decode([TrencinArticleBase].self, from: file.availableData)
             return articles
         } catch {
             print(error)
@@ -91,7 +91,7 @@ class TrencinArticleStore: ObservableObject {
     }
     
     @discardableResult
-    static func save(articles: [TrencinWpArticle]) async throws -> Int {
+    static func save(articles: [TrencinArticleBase]) async throws -> Int {
         do {
             let data = try JSONEncoder().encode(articles)
             let outfile = try fileURL()
